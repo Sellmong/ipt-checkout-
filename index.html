@@ -18,4 +18,230 @@ h1,h2,h3{font-family:'Oswald',sans-serif;letter-spacing:.5px}
 .plan-badge{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-bottom:.5rem}
 .badge-popular{background:#F5C518;color:#111}
 .badge-offer{background:#22C55E;color:#fff}
-.badge-best{background:#3B82
+.badge-best{background:#3B82F6;color:#fff}
+.badge-trial{background:#444;color:#aaa;font-size:.55rem;padding:2px 6px;border-radius:3px}
+.plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1rem}
+@media(max-width:500px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
+.plan-card{background:var(--card);border:1.5px solid var(--border);border-radius:8px;padding:.75rem .5rem;cursor:pointer;transition:all .15s;text-align:center}
+.plan-card:hover{border-color:#555}
+.plan-card.selected{border-color:var(--gold);background:#1f1a00}
+.plan-card .duration{font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:500;margin:.3rem 0 .2rem}
+.plan-card .price{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:600;color:var(--gold)}
+.plan-card .price sup{font-size:.75rem;vertical-align:top;margin-top:.2rem}
+.plan-card .price .cents{font-size:.75rem}
+.plan-card .permth{font-size:.6rem;color:var(--muted);margin-top:2px}
+.plan-card .badges-top{min-height:18px;margin-bottom:4px}
+.devices-row{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.devices-row label{font-size:.8rem;color:var(--muted);min-width:80px}
+.device-select{flex:1;background:var(--input);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:6px;font-size:.85rem}
+.qty-ctrl{display:flex;align-items:center;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.qty-ctrl button{background:var(--card2);border:none;color:var(--text);padding:8px 14px;cursor:pointer;font-size:1rem}
+.qty-ctrl button:hover{background:#333}
+.qty-ctrl span{padding:8px 14px;background:var(--input);font-size:.9rem;min-width:36px;text-align:center}
+.right{padding:2rem 1.5rem;background:#111}
+.right h2{font-size:1rem;font-weight:500;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem}
+.field-group{margin-bottom:1rem}
+.field-group label{display:block;font-size:.72rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.field-group input,.field-group select{width:100%;background:var(--input);border:1px solid var(--border);color:var(--text);padding:11px 14px;border-radius:7px;font-size:.95rem;transition:border .15s;font-family:'DM Sans',sans-serif}
+.field-group input:focus,.field-group select:focus{outline:none;border-color:var(--gold)}
+.field-group input::placeholder{color:#555}
+.phone-row{display:flex;gap:8px}
+.country-code{width:130px;flex-shrink:0}
+.contact-toggle{display:flex;gap:8px;margin-bottom:1rem}
+.ctbtn{flex:1;padding:11px;border-radius:7px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.ctbtn.active{border-color:var(--gold);color:var(--gold);background:#1f1a00}
+.ctbtn#ct-wa.active{border-color:#25D366;color:#25D366;background:#0a1f12}
+.order-summary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1.25rem}
+.summary-row{display:flex;justify-content:space-between;font-size:.85rem;padding:4px 0;color:var(--muted)}
+.summary-row.total{border-top:1px solid var(--border);margin-top:6px;padding-top:8px;font-size:1rem;font-weight:500;color:var(--text)}
+.submit-btn{width:100%;padding:15px;background:var(--gold);border:none;border-radius:8px;font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:1px;cursor:pointer;color:#111;margin-top:.5rem;transition:opacity .15s}
+.submit-btn:hover{opacity:.9}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.show{opacity:1;pointer-events:all}
+.modal{background:#1A1A1A;border:1px solid #333;border-radius:12px;padding:2rem;max-width:420px;width:90%;text-align:center}
+.modal-icon{font-size:2.5rem;margin-bottom:1rem}
+.modal h3{font-family:'Oswald',sans-serif;font-size:1.3rem;margin-bottom:.5rem;color:var(--gold)}
+.modal p{color:var(--muted);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem}
+.modal .order-id{font-family:monospace;background:#111;padding:8px 16px;border-radius:6px;color:var(--gold);font-size:.95rem;display:inline-block;margin-bottom:1rem;border:1px solid #333}
+.modal-close{background:var(--gold);border:none;border-radius:7px;padding:11px 28px;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;color:#111}
+</style>
+</head>
+<body>
+<div class="checkout-wrap">
+  <div class="left">
+    <div class="logo">📺 IPTV Store</div>
+    <div class="section-title">① Choose your plan</div>
+    <div style="font-size:.75rem;color:var(--muted);margin-bottom:.6rem">⭐ <strong style="color:#f0f0f0">Strong & Ultra</strong> — Smart IPTV, 4K image, more channels</div>
+    <div class="plans-grid">
+      <div class="plan-card selected" data-plan="Strong & Ultra" data-months="1" data-price="9.99" onclick="selectPlan(this)">
+        <div class="badges-top"><span class="badge-trial plan-badge">Trial</span></div>
+        <div class="duration">1 Month</div>
+        <div class="price"><sup>£</sup>9<span class="cents">.99</span></div>
+      </div>
+      <div class="plan-card" data-plan="Strong & Ultra" data-months="3" data-price="19.99" onclick="selectPlan(this)">
+        <div class="badges-top"><span class="badge-popular plan-badge">Popular</span></div>
+        <div class="duration">3 Months</div>
+        <div class="price"><sup>£</sup>19<span class="cents">.99</span></div>
+        <div class="permth">£6.66/mo</div>
+      </div>
+      <div class="plan-card" data-plan="Strong & Ultra" data-months="6" data-price="29.99" onclick="selectPlan(this)">
+        <div class="badges-top"><span class="badge-offer plan-badge">Offer</span></div>
+        <div class="duration">6 Months</div>
+        <div class="price"><sup>£</sup>29<span class="cents">.99</span></div>
+        <div class="permth">£5.00/mo</div>
+      </div>
+      <div class="plan-card" data-plan="Strong & Ultra" data-months="12" data-price="49.99" onclick="selectPlan(this)">
+        <div class="badges-top"><span class="badge-best plan-badge">Best value</span></div>
+        <div class="duration">12 Months</div>
+        <div class="price"><sup>£</sup>49<span class="cents">.99</span></div>
+        <div class="permth">£4.17/mo</div>
+      </div>
+    </div>
+    <div class="section-title" style="margin-top:1.5rem">② Device & accounts</div>
+    <div class="devices-row">
+      <label>Application</label>
+      <select class="device-select" id="device-select" onchange="updateSummary()">
+        <option>Android TV</option>
+        <option>Smart TV (Samsung/LG)</option>
+        <option>Apple TV / iOS</option>
+        <option>Amazon Firestick</option>
+        <option>MAG / Formuler</option>
+        <option>PC / Windows</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="devices-row">
+      <label>Accounts</label>
+      <div class="qty-ctrl">
+        <button onclick="changeQty(-1)">−</button>
+        <span id="qty-display">1</span>
+        <button onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <h2>③ Your information</h2>
+    <div class="order-summary">
+      <div class="summary-row"><span>Plan</span><span id="s-plan">Strong & Ultra — 1 Month</span></div>
+      <div class="summary-row"><span>Device</span><span id="s-device">Android TV</span></div>
+      <div class="summary-row"><span>Accounts</span><span id="s-qty">1</span></div>
+      <div class="summary-row total"><span>Total</span><span id="s-total">£9.99</span></div>
+    </div>
+    <div class="field-group">
+      <label>Full name *</label>
+      <input type="text" id="f-name" placeholder="Ex: John Smith">
+    </div>
+    <div class="field-group">
+      <label>Email *</label>
+      <input type="email" id="f-email" placeholder="Ex: john@email.com">
+    </div>
+    <div class="field-group">
+      <label>WhatsApp number *</label>
+      <div class="phone-row">
+        <select class="device-select country-code" id="f-country">
+          <option value="+44">🇬🇧 +44</option>
+          <option value="+33">🇫🇷 +33</option>
+          <option value="+212">🇲🇦 +212</option>
+          <option value="+32">🇧🇪 +32</option>
+          <option value="+41">🇨🇭 +41</option>
+          <option value="+1">🇺🇸 +1</option>
+          <option value="+49">🇩🇪 +49</option>
+          <option value="+34">🇪🇸 +34</option>
+          <option value="+31">🇳🇱 +31</option>
+        </select>
+        <input type="tel" id="f-phone" placeholder="7911 123456" style="flex:1">
+      </div>
+    </div>
+    <div class="field-group">
+      <label>Preferred contact *</label>
+      <div class="contact-toggle">
+        <button class="ctbtn active" id="ct-wa" onclick="setContact('WhatsApp')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </button>
+        <button class="ctbtn" id="ct-em" onclick="setContact('Email')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </button>
+      </div>
+    </div>
+    <div class="field-group">
+      <label>Notes (optional)</label>
+      <input type="text" id="f-notes" placeholder="Ex: gift for someone, special request...">
+    </div>
+    <button class="submit-btn" onclick="submitOrder()">PLACE ORDER →</button>
+  </div>
+</div>
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-icon">✅</div>
+    <h3>Order received!</h3>
+    <p>Your order has been sent. We'll contact you with the payment link shortly on your preferred channel.</p>
+    <div class="order-id" id="modal-orderid">#ORD-000000</div>
+    <br><br>
+    <button class="modal-close" onclick="closeModal()">OK, got it</button>
+  </div>
+</div>
+<script>
+let selectedPlan={type:'Strong & Ultra',months:1,price:9.99};
+let qty=1;
+let contactPref='WhatsApp';
+function selectPlan(el){
+  document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPlan={type:el.dataset.plan,months:parseInt(el.dataset.months),price:parseFloat(el.dataset.price)};
+  updateSummary();
+}
+function changeQty(d){qty=Math.max(1,Math.min(10,qty+d));document.getElementById('qty-display').textContent=qty;updateSummary();}
+function setContact(type){
+  contactPref=type;
+  document.getElementById('ct-wa').classList.toggle('active',type==='WhatsApp');
+  document.getElementById('ct-em').classList.toggle('active',type==='Email');
+}
+function updateSummary(){
+  const label=selectedPlan.type+' — '+selectedPlan.months+' Month'+(selectedPlan.months>1?'s':'');
+  document.getElementById('s-plan').textContent=label;
+  document.getElementById('s-device').textContent=document.getElementById('device-select').value;
+  document.getElementById('s-qty').textContent=qty;
+  document.getElementById('s-total').textContent='£'+(selectedPlan.price*qty).toFixed(2);
+}
+async function submitOrder(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const country=document.getElementById('f-country').value;
+  const notes=document.getElementById('f-notes').value.trim();
+  const device=document.getElementById('device-select').value;
+  if(!name||!email||!phone){alert('Please fill all required fields.');return;}
+  const btn=document.querySelector('.submit-btn');
+  btn.disabled=true;btn.textContent='Sending...';
+  const orderId='#ORD-'+Date.now().toString().slice(-6);
+  const planLabel=selectedPlan.type+' — '+selectedPlan.months+' Month'+(selectedPlan.months>1?'s':'');
+  const total=(selectedPlan.price*qty).toFixed(2);
+  const fullPhone=country+phone.replace(/\s/g,'');
+  const waLink='https://wa.me/'+fullPhone.replace('+','');
+  const message=`🛒 <b>NEW ORDER ${orderId}</b>\n\n`+`👤 <b>Name:</b> ${name}\n`+`📧 <b>Email:</b> ${email}\n`+`📱 <b>WhatsApp:</b> ${fullPhone}\n`+`📺 <b>Plan:</b> ${planLabel}\n`+`🖥️ <b>Device:</b> ${device}\n`+`👥 <b>Accounts:</b> ${qty}\n`+`💰 <b>Total:</b> £${total}\n`+`💬 <b>Contact via:</b> ${contactPref}\n`+(notes?`📝 <b>Notes:</b> ${notes}\n`:'')+`\n⏰ ${new Date().toLocaleString('en-GB')}\n\n`+`➡️ <b>Open WhatsApp:</b> ${waLink}`;
+  try{
+    const res=await fetch('/.netlify/functions/send-telegram',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({message})
+    });
+    const data=await res.json();
+    if(!data.ok)throw new Error(data.description);
+  }catch(e){console.error('Error:',e.message);}
+  document.getElementById('modal-orderid').textContent=orderId;
+  document.getElementById('modal').classList.add('show');
+  btn.disabled=false;btn.textContent='PLACE ORDER →';
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('show');
+  document.getElementById('f-name').value='';
+  document.getElementById('f-email').value='';
+  document.getElementById('f-phone').value='';
+  document.getElementById('f-notes').value='';
+}
+</script>
+</body>
+</html>
